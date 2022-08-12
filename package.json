@@ -7,9 +7,11 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
+    "start-storybook": "nuxt storybook",
     "build-storybook": "nuxt storybook build"
   },
   "dependencies": {
+    "@nuxtjs/composition-api": "^0.33.1",
     "core-js": "^3.19.3",
     "nuxt": "^2.15.8",
     "vue": "^2.6.14",
@@ -24,6 +26,8 @@
     "@nuxtjs/storybook": "^4.3.2",
     "@storybook/addon-actions": "^6.5.10",
     "chromatic": "^6.7.3",
+    "sass": "^1.54.4",
+    "sass-loader": "^10.3.1",
     "ts-node": "^10.9.1"
   }
 }

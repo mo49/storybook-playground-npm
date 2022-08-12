@@ -1,44 +1,48 @@
 <template>
-  <button :data-type="type" @click="onClick">
-    <span v-if="showIcon">icon: </span>{{ text }}
+  <button
+    :class="className"
+    :disabled="disabled"
+    @click="onClick"
+  >
+    {{ text }}
   </button>
 </template>
 
 <script lang="ts">
-export default {
-  name: 'Button',
+import { defineComponent, SetupContext } from '@nuxtjs/composition-api'
+const Button = defineComponent({
   props: {
-    type: {
-      type: String,
-      default: 'normal'
-    },
-    text: {
-      type: String,
-      default: 'BUTTON'
-    },
-    showIcon: {
-      type: Boolean,
-      defalut: false,
-    }
+    className: { type: String, default: '' },
+    text: { type: String, default: '' },
+    disabled: { type: Boolean, default: false }
   },
-  methods: {
-    onClick() {
-      // console.log(`click ${this.text}`)
+  setup (_, context: SetupContext) {
+    // method
+    const onClick = (e) => {
+      context.emit('on-click', e)
     }
-  },
-}
+    return {
+      onClick
+    }
+  }
+})
+export default Button
 </script>
 
-<style>
-button {
-  padding: 10px 15px;
+<style lang="scss" scoped>
+$color-active: orange;
+.normal {
+  background-color: $color-active;
+  color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 3px;
+  width: 70px;
+  height: 22px;
 }
-button[data-type="primary"]{
-  background-color: orange;
+.large {
+  //
 }
-button[data-type="secondary"]{
-  background-color: skyblue;
+.small {
+  //
 }
 </style>

@@ -1,22 +1,15 @@
 export default {
-  title: 'Button',
+  title: 'Button'
 }
 
 const Template = (_, { argTypes }) => ({
   props: Object.keys(argTypes),
-  template: `<Button v-bind="$props" />`
+  template: '<Button v-bind="$props" />'
 })
 
-export const Primary = Template.bind({})
-Primary.args = {
-  type: 'primary',
-  text: 'PRIMARY BUTTON',
-  showIcon: true,
-}
-
-export const Secondary = Template.bind({})
-Secondary.args = {
-  type: 'secondary',
-  text: 'SECONDARY BUTTON',
-  showIcon: false,
+export const Normal = Template.bind({})
+Normal.args = {
+  className: 'normal',
+  text: 'PUSH',
+  disabled: false
 }
