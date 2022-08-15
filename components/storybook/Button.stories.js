@@ -13,3 +13,10 @@ Normal.args = {
   text: 'PUSH',
   disabled: false
 }
+
+export const Active = Template.bind({})
+Active.args = {
+  className: 'active',
+  text: 'PUSH',
+  disabled: false
+}
